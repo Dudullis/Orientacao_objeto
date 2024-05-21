@@ -9,23 +9,22 @@ public class JogoAdivinha {
         int numTentativas = 0;
 
         Scanner entrada = new Scanner(System.in);
-
-        // Solicitar nível de dificuldade
+        while(nivel = 5){
         do {
             System.out.println("Escolha o nivel de dificuldade: \n" +
                     "1 - Iniciante; \n" +
                     "2 - Intermediario; \n" +
                     "3 - Avançado; \n" +
-                    "4 - Expert; \n");
+                    "4 - Expert; \n" +
+                    "5 - Tentar novamente; \n" +
+                    "6 - Sair; \n");
             nivel = entrada.nextInt();
 
-            if (nivel < 1 || nivel > 4) {
+            if (nivel <= 0 || nivel >= 7) {
                 System.out.println("Operacao desconhecida. Reedigite o nivel!\n");
                 System.out.println("---------------------------------------------------------\n");
             }
-        } while (nivel < 1 || nivel > 4);
-
-        // Definir parâmetros com base no nível
+        } while (nivel < 1 || nivel > 7);
         switch (nivel) {
             case 1:
                 System.out.println("\nNivel Iniciante\nVoce tem 10 tentativas\nAdivinhe um numero entre 0 e 30.");
@@ -47,9 +46,11 @@ public class JogoAdivinha {
                 numeros = 200;
                 numTentativas = 5;
                 break;
+            case 6:
+                System.out.printl("Game finalizado\n\n\nObrigado por jogar!\n");
+                exit()
+                break;
         }
-
-        // Iniciando o jogo de adivinhação
         Random random = new Random();
         int numRandom = random.nextInt(numeros + 1);
         int tentativas = 1;
@@ -74,4 +75,4 @@ public class JogoAdivinha {
         entrada.close();
     }
 }
-Testa esse codigo aqui, nao consegui testar, mas deve estar funcionando de acordo com o que queremos
+}
