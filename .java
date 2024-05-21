@@ -50,7 +50,7 @@ public class JogoAdivinha {
                     continue;
                 case 6:
                     System.out.println("Game finalizado\n\n\nObrigado por jogar!\n");
-                    System.exit(0); // Encerra o programa
+                    System.exit(0);
             }
             Random random = new Random();
             int numRandom = random.nextInt(numeros + 1);
