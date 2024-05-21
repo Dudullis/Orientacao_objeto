@@ -48,7 +48,7 @@ public class JogoAdivinha {
                 break;
             case 6:
                 System.out.printl("Game finalizado\n\n\nObrigado por jogar!\n");
-                exit()
+                exit();
                 break;
         }
         Random random = new Random();
