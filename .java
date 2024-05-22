@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,17 +8,16 @@ public class JogoAdivinha {
         int numeros = 0;
         int nivel;
         int numTentativas = 0;
-
+        boolean jogoAtivo = true;
         Scanner entrada = new Scanner(System.in);
-        while (true) {
+        while (jogoAtivo) {
             do {
                 System.out.println("Escolha o nivel de dificuldade: \n" +
                         "1 - Iniciante; \n" +
                         "2 - Intermediario; \n" +
                         "3 - Avançado; \n" +
                         "4 - Expert; \n" +
-                        "5 - Tentar novamente; \n" +
-                        "6 - Sair; \n");
+                        "5 - Sair; \n");
                 nivel = entrada.nextInt();
 
                 if (nivel <= 0 || nivel >= 7) {
@@ -47,8 +47,6 @@ public class JogoAdivinha {
                     numTentativas = 5;
                     break;
                 case 5:
-                    continue;
-                case 6:
                     System.out.println("Game finalizado\n\n\nObrigado por jogar!\n");
                     System.exit(0);
             }
@@ -65,14 +63,25 @@ public class JogoAdivinha {
                     System.out.printf("%d é maior!\n", num);
                 else if (num < numRandom)
                     System.out.printf("%d é menor!\n", num);
-                else {
+                 else
                     System.out.println("Voce acertou!");
-                    entrada.close();
-                    return;
-                }
+                    System.out.printf("\nSeu número de tentativas foi: %d\n", tentativas -1); 
             }
-
-            System.out.println("Voce excedeu o limite de tentativas. O numero era: " + numRandom);
+            if (tentativas > numTentativas) 
+                System.out.println("Voce excedeu o limite de tentativas.\nO numero era: " + numRandom);
+                System.out.println("\nDeseja jogar novamente? (1 - Sim, 2 - Não)");
+                int opcaoSaida = entrada.nextInt();
+                while (opcaoSaida != 1 && opcaoSaida != 2) {
+                    System.out.println("Operacao desconhecida. Reedigite o nivel!\n");
+                    System.out.println("---------------------------------------------------------\n");
+                    opcaoSaida = entrada.nextInt();
+                }
+                if(opcaoSaida == 2){
+                    jogoAtivo = false;
+                    System.out.println("Obrigado por jogar!");
+                    entrada.close();
+                }
+               
         }
     }
 }
