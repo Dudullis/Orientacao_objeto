@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // Importe a classe JogoGUI e DatabaseUtil corretamente
-import seu.pacote.JogoGUI; // Substitua "seu.pacote" pelo caminho correto
-import seu.pacote.DatabaseUtil; // Substitua "seu.pacote" pelo caminho correto
+import Orientacao_objeto.JogoFrontBack.JogoGUI;
+import Orientacao_objeto.JogoFrontBack.DatabaseUtil;
+
 
 public class Janela extends JFrame {
     private final JLabel iconLabel, userLabel, passwordLabel;
