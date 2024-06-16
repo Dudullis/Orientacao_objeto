@@ -1,10 +1,12 @@
+import javax.swing.SwingUtilities;
+
 public class JogoAdivinha {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                new JogoGUI().setVisible(true);
+                new JogoGUI("NomeDoUsuario").setVisible(true); // Passe o argumento adequado
             }
         });
     }
 }
+

@@ -10,6 +10,13 @@ public class Jogo {
     private String nivel;
     private boolean sucesso;
 
+    // Método para salvar o resultado
+    public void salvarResultado(String usuario) {
+        // Implementação para salvar o resultado no banco de dados usando o nome do usuário
+        System.out.println("Resultado salvo para o usuário: " + usuario);
+        // Código para salvar o resultado no banco de dados...
+    }
+
     public void iniciarJogo(String nivel) {
         this.nivel = nivel;
         sucesso = false;

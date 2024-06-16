@@ -99,7 +99,7 @@ public class JogoGUI extends JFrame {
             adivinharButton.setEnabled(false);
             palpiteTextField.setEnabled(false);
             reiniciarButton.setEnabled(true);
-            jogo.salvarResultado(usuario); // Salvar o resultado do jogo associado ao usuário
+            salvarResultado(); // Salvar o resultado do jogo associado ao usuário
         }
     }
 
@@ -113,8 +113,13 @@ public class JogoGUI extends JFrame {
         reiniciarButton.setEnabled(false);
     }
 
+    private void salvarResultado() {
+        // Implemente a lógica para salvar o resultado do jogo no banco de dados
+        System.out.println("Salvando resultado do jogo para o usuário: " + usuario);
+        jogo.salvarResultado(usuario); // Chame o método para salvar o resultado
+    }
+
     public static void main(String[] args) {
-        // Exemplo de uso (você pode chamar JogoGUI a partir de JanelaLogin)
-        SwingUtilities.invokeLater(() -> new JogoGUI("usuario"));
+        SwingUtilities.invokeLater(() -> new JogoGUI("usuario").setVisible(true));
     }
 }

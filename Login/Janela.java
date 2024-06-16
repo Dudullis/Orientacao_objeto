@@ -7,6 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+// Importe a classe JogoGUI e DatabaseUtil corretamente
+import seu.pacote.JogoGUI; // Substitua "seu.pacote" pelo caminho correto
+import seu.pacote.DatabaseUtil; // Substitua "seu.pacote" pelo caminho correto
+
 public class Janela extends JFrame {
     private final JLabel iconLabel, userLabel, passwordLabel;
     private final JTextField userField;
@@ -19,19 +23,22 @@ public class Janela extends JFrame {
 
         setLayout(new FlowLayout());
 
+        // Carregar ícone e ajustar tamanho
         icon = new ImageIcon(getClass().getResource("images/login.png"));
-        icon2 = new ImageIcon(
-                icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
-
+        icon2 = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         iconLabel = new JLabel(icon2);
+
+        // Componentes de login
         userLabel = new JLabel("Usuário: ");
         passwordLabel = new JLabel("Senha: ");
         userField = new JTextField("Digite seu login...", 10);
         passwordField = new JPasswordField(10);
 
+        // Botões
         entrarButton = new JButton("Acessar");
         limparButton = new JButton("Limpar");
 
+        // Adicionar componentes à janela
         add(iconLabel);
         add(userLabel);
         add(userField);
@@ -40,6 +47,7 @@ public class Janela extends JFrame {
         add(entrarButton);
         add(limparButton);
 
+        // Eventos dos botões
         ComponentesEventos eventos = new ComponentesEventos();
         entrarButton.addActionListener(eventos);
         limparButton.addActionListener(eventos);
@@ -76,7 +84,7 @@ public class Janela extends JFrame {
                 statement.setString(1, usuario);
                 statement.setString(2, senha);
                 try (ResultSet resultSet = statement.executeQuery()) {
-                    return resultSet.next();
+                    return resultSet.next(); // Retorna true se encontrou algum resultado
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -86,6 +94,7 @@ public class Janela extends JFrame {
     }
 
     public static void main(String[] args) {
+        // Criar e configurar a janela
         Janela janela = new Janela();
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setSize(500, 200);
